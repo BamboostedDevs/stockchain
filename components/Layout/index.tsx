@@ -5,6 +5,7 @@ import sizeContainer from "../../containers/size";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
+import { Sidebar } from "../Segments";
 
 type Props = {
   children: any;
@@ -12,8 +13,8 @@ type Props = {
 
 const theme = createMuiTheme({
   palette: {
-    type: 'dark'
-  },
+    type: "dark"
+  }
 });
 
 export default class Layout extends PureComponent<Props> {
@@ -31,6 +32,7 @@ export default class Layout extends PureComponent<Props> {
         </Head>
         <Provider>
           <ThemeProvider theme={theme}>
+            <Sidebar></Sidebar>
             <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
           </ThemeProvider>
         </Provider>

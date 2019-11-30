@@ -1,8 +1,6 @@
 import Layout from "../components/Layout";
 import sizeContainer from "../containers/size";
 import { Component } from "react";
-import { Home } from "../components/Segments";
-import { StickyContainer } from "react-sticky";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
 

@@ -55,7 +55,7 @@ export default class Scroll extends Component<Props> {
             })
           }
         </Subscribe>
-        <Filter />
+        <Filter List={List} />
       </div>
     );
   }
