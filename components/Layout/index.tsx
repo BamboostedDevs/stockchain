@@ -3,10 +3,18 @@ import { Provider, Subscribe } from "unstated";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import sizeContainer from "../../containers/size";
 import Head from "next/head";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core";
 
 type Props = {
   children: any;
 };
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark'
+  },
+});
 
 export default class Layout extends PureComponent<Props> {
 
@@ -20,10 +28,12 @@ export default class Layout extends PureComponent<Props> {
     return (
       <>
         <Head>
-          <title>Boilerplate of Next.js PWA with typescript</title>
+          <title>StockChain</title>
         </Head>
         <Provider>
-          <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
+          <ThemeProvider theme={theme}>
+            <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
+          </ThemeProvider>
         </Provider>
         <style jsx global>{`
           body {

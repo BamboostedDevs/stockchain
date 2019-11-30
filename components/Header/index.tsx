@@ -1,6 +1,5 @@
 import { Navbar, Col, Row, Nav } from "react-bootstrap";
 import { Sticky } from "react-sticky";
-import Navigation from "./Navigation";
 
 function Header() {
   return (
@@ -55,7 +54,6 @@ function Header() {
               </Row>
             </Navbar.Brand>
             <Nav className="mr-auto" />
-            <Navigation />
             <style jsx global>{`
               .bg {
                 background-color: rgba(255, 250, 240, 0.75) !important;

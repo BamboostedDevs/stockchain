@@ -1,15 +1,16 @@
 import Layout from "../components/Layout";
 import sizeContainer from "../containers/size";
 import { Component } from "react";
-import { Home } from "../components/Segments";
-import { StickyContainer } from "react-sticky";
-import Header from "../components/Header";
+import { Home, Sidebar, Investor, Emitter } from "../components/Segments";
 
 type State = {
   size: boolean | "large" | "medium" | "small";
 };
+type Props = {
+  children: any
+}
 
-export default class Main extends Component<{}, State> {
+export default class Main extends Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = { size: false };
@@ -26,9 +27,9 @@ export default class Main extends Component<{}, State> {
     return (
       <Layout>
         <Home size={this.state.size} />
-        <StickyContainer>
-          <Header />
-        </StickyContainer>
+        <Sidebar>
+          <Investor />
+        </Sidebar>
       </Layout>
     );
   }
