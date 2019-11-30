@@ -26,7 +26,7 @@ export default class Layout extends PureComponent<Props> {
         </Provider>
         <style jsx global>{`
           body {
-            background-color: rgb(0, 176, 255);
+            background-color: rgb(96, 99, 104);
           }
           img {
             pointer-events: none;

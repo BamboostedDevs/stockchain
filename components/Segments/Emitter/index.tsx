@@ -37,92 +37,111 @@ export default class Emitter extends Component<{}, State> {
 
   render() {
     return (
-      <Paper
+      <Col
         style={{
-          marginLeft: "3vw",
-          marginRight: "3vw",
           marginTop: "5vh",
-          marginBottom: "5vh",
-          background: "rgb(0,129,203)"
+          marginBottom: "5vh"
         }}
       >
-        <Col>
-          <Row style={{ justifyContent: "center" }}>
-            <img
-              style={{ borderRadius: "50%" }}
-              src="/images/random_log.jpg"
-              alt="Avatar"
-              height="150"
-              width="150"
-            />
-          </Row>
-          <Row style={{ justifyContent: "center" }}>
-            <Typography variant="h3">A Company</Typography>
-          </Row>
-          <Row style={{ justifyContent: "center" }}>
-            <Typography variant="h5">Public Company</Typography>
-          </Row>
-          <Row style={{ justifyContent: "center" }}>
-            <Typography variant="h6">14 Random St</Typography>
-          </Row>
-          <Row style={{ justifyContent: "center" }}>
-            <Typography variant="h6">Somewhere, Some City</Typography>
-          </Row>
-          <Row style={{ justifyContent: "center" }}>
-            <Typography variant="h6">KWSW 654, Country</Typography>
-          </Row>
-          <Row style={{ justifyContent: "space-around" }}>
-            <Col style={{ justifyContent: "center" }}>
-              <FormControl>
-                <Typography variant="subtitle1">Bids:</Typography>
-                <Select
-                  multiple
-                  native
-                  value={this.state.clickedBid}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    id: "select-multiple-native"
-                  }}
-                >
-                  {this.state.bids.map(bid => (
-                    <option
-                      style={{ marginBottom: "2vh" }}
-                      key={bid}
-                      value={bid}
-                    >
-                      {bid}
-                    </option>
-                  ))}{" "}
-                </Select>
-              </FormControl>
-            </Col>
-            <Col style={{ justifyContent: "center" }}>
-              <FormControl>
-                <Typography variant="subtitle1">Asks:</Typography>
-                <Select
-                  multiple
-                  native
-                  value={this.state.clickedAsk}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    id: "select-multiple-native"
-                  }}
-                >
-                  {this.state.asks.map(ask => (
-                    <option
-                      style={{ marginBottom: "2vh" }}
-                      key={ask}
-                      value={ask}
-                    >
-                      {ask}
-                    </option>
-                  ))}{" "}
-                </Select>
-              </FormControl>
-            </Col>
-          </Row>
-        </Col>
-      </Paper>
+        <Row style={{ justifyContent: "center" }}>
+          <img
+            style={{ borderRadius: "50%" }}
+            src="/images/random_log.jpg"
+            alt="Avatar"
+            height="150"
+            width="150"
+          />
+        </Row>
+        <Row style={{ justifyContent: "center", color: "white" }}>
+          <Typography variant="h3">A Company</Typography>
+        </Row>
+        <Row style={{ justifyContent: "center", color: "white" }}>
+          <Typography variant="h6">Public Company</Typography>
+        </Row>
+        <Row style={{ justifyContent: "center", color: "white" }}>
+          <Typography variant="h6">14 Random St</Typography>
+        </Row>
+        <Row style={{ justifyContent: "center", color: "white" }}>
+          <Typography variant="h6">Somewhere, Some City</Typography>
+        </Row>
+        <Row style={{ justifyContent: "center", color: "white" }}>
+          <Typography variant="h6">KWSW 654, Country</Typography>
+        </Row>
+        <Row style={{ justifyContent: "space-around", marginTop: "3vh" }}>
+          <Col style={{ justifyContent: "center" }}>
+            <FormControl
+              style={{
+                width: "100%",
+                color: "white",
+                background: "rgb(32,33,36)"
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                style={{ marginLeft: "4vw", marginTop: "2vh" }}
+              >
+                Bids:
+              </Typography>
+              <Select
+                multiple
+                native
+                value={this.state.clickedBid}
+                onChange={this.handleChange}
+                inputProps={{
+                  id: "select-multiple-native"
+                }}
+                style={{ color: "white" }}
+              >
+                {this.state.bids.map(bid => (
+                  <option
+                    style={{ marginBottom: "4vh", marginLeft: "9vw" }}
+                    key={bid}
+                    value={bid}
+                  >
+                    {bid}
+                  </option>
+                ))}{" "}
+              </Select>
+            </FormControl>
+          </Col>
+          <Col style={{ justifyContent: "center" }}>
+            <FormControl
+              style={{
+                width: "100%",
+                color: "white",
+                background: "rgb(60,64,66)"
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                style={{ marginLeft: "4vw", marginTop: "2vh" }}
+              >
+                Asks:
+              </Typography>
+              <Select
+                multiple
+                native
+                value={this.state.clickedAsk}
+                onChange={this.handleChange}
+                inputProps={{
+                  id: "select-multiple-native"
+                }}
+                style={{ color: "white" }}
+              >
+                {this.state.asks.map(ask => (
+                  <option
+                    style={{ marginBottom: "4vh", marginLeft: "9vw" }}
+                    key={ask}
+                    value={ask}
+                  >
+                    {ask}
+                  </option>
+                ))}{" "}
+              </Select>
+            </FormControl>
+          </Col>
+        </Row>
+      </Col>
     );
   }
 }
