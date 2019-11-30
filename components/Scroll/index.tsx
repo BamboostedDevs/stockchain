@@ -1,14 +1,23 @@
 import React, { Component } from "react";
-import TrackVisibility from "react-on-screen";
-import Tile from "./Tile";
-import { Paper } from "@material-ui/core";
-import tileContainer, { TileContainer } from "../../containers/tile";
-import { Subscribe } from "unstated";
-import Filter from "./Filter";
+import { Paper, Typography } from "@material-ui/core";
+//@ts-ignore
+import IsVisible from "react-is-visible";
+import { Row, Col } from "react-bootstrap";
+
+type List = { name: string; logo: string; bid: number; ask: number };
 
 type Props = {
-  List: object[];
+  List: List[];
 };
+
+function uniq(a: number[]) {
+  return Array.from(new Set(a));
+}
+
+function getTop(a: any) {
+  const min = Math.min(...a);
+  return min == Infinity ? 0 : min;
+}
 
 const styles = {
   tile: {
@@ -27,35 +36,97 @@ const styles = {
   }
 };
 
-export default class Scroll extends Component<Props> {
+type State = {
+  visible: number[];
+};
+
+export default class Scroll extends Component<Props, State> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      visible: []
+    };
+  }
+
   render() {
     const { List } = this.props;
     return (
       <div>
-        <Subscribe to={[tileContainer]}>
-          {container =>
-            List.map((val, idx) => {
-              return (
-                <Paper
-                  key={idx + "-tile"}
-                  className="blockOfTile"
-                  style={
-                    tileContainer.getTop() == idx ? styles.tileTop : styles.tile
+        {List.map((val, idx) => {
+          var top = getTop(this.state.visible);
+          return (
+            <Paper
+              key={idx + "-tile"}
+              className="blockOfTile"
+              style={top == idx ? styles.tileTop : styles.tile}
+            >
+              <IsVisible>
+                {(IsVisible: boolean) => {
+                  if (IsVisible == true && !this.state.visible.includes(idx)) {
+                    var list = uniq(this.state.visible);
+                    !list.includes(idx) && list.push(idx);
+                    !this.state.visible.includes(idx) &&
+                      this.setState({ visible: list });
+                  } else if (
+                    IsVisible == false &&
+                    this.state.visible.includes(idx)
+                  ) {
+                    var list = uniq(this.state.visible);
+                    const toRemove = list.indexOf(idx);
+                    toRemove > -1 &&
+                      list.splice(toRemove, 1) &&
+                      this.setState({ visible: uniq(list) });
                   }
-                >
-                  <TrackVisibility>
-                    <Tile
-                      val={val}
-                      idx={idx}
-                      top={tileContainer.getTop() == idx}
-                    />
-                  </TrackVisibility>
-                </Paper>
-              );
-            })
-          }
-        </Subscribe>
-        <Filter List={List} />
+                  return (
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      style={{
+                        paddingTop: "10%",
+                        paddingLeft: "10%",
+                        color: "white"
+                      }}
+                    >
+                      <Row style={{ marginRight: 0 }}>
+                        <Col>
+                          <img
+                            src="/icon.png"
+                            width={top == idx ? "75" : "50"}
+                            height={top == idx ? "75" : "50"}
+                            style={{
+                              marginTop: top == idx ? "-10%" : "-5%",
+                              transitionDuration: "0.2s"
+                            }}
+                          ></img>
+                        </Col>
+                        <Col
+                          style={{
+                            marginLeft: "-12.5%",
+                            transitionDuration: "0.2s",
+                            fontSize: top == idx ? "1.5rem" : "1.25rem"
+                          }}
+                        >
+                          {val.name}
+                        </Col>
+                        <Col
+                          style={{
+                            marginLeft: "5vw",
+                            marginRight: 0,
+                            transitionDuration: "0.2s",
+                            fontSize: top == idx ? "1.5rem" : "1.25rem"
+                          }}
+                        >
+                          Ico
+                        </Col>
+                      </Row>
+                    </Typography>
+                  );
+                }}
+              </IsVisible>
+            </Paper>
+          );
+        })}
       </div>
     );
   }
