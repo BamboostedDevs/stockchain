@@ -13,7 +13,7 @@
   "license": "MIT",
   "description": "Boilerplate of Next.js PWA with typescript",
   "dependencies": {
-    "@material-ui/core": "^4.5.2",
+    "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
     "@types/node": "^12.12.5",
     "@types/react": "^16.9.11",
@@ -30,7 +30,7 @@
     "next-optimized-images": "^2.5.4",
     "next-purgecss": "^3.1.1",
     "react": "^16.11.0",
-    "react-bootstrap": "^1.0.0-beta.14",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.11.0",
     "react-sticky": "^6.0.3",
     "typescript": "^3.6.4",

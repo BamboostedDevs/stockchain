@@ -9,7 +9,6 @@ type Props = {
 };
 
 export default class Layout extends PureComponent<Props> {
-
   componentDidMount() {
     const height = window.innerHeight;
     const width = window.innerWidth;
@@ -27,7 +26,7 @@ export default class Layout extends PureComponent<Props> {
         </Provider>
         <style jsx global>{`
           body {
-            background-color: rgb(73, 158, 249);
+            background-color: rgb(0, 176, 255);
           }
           img {
             pointer-events: none;

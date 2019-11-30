@@ -1,14 +1,12 @@
 import React, { Component } from "react";
+import { PrivateRegister } from "../components/Segments";
 import Layout from "../components/Layout";
-import { Landing } from "../components/Segments";
 
-type State = {};
-
-export default class Main extends Component<{}, State> {
+export default class privateRegister extends Component {
   render() {
     return (
       <Layout>
-        <Landing />
+        <PrivateRegister />
       </Layout>
     );
   }
