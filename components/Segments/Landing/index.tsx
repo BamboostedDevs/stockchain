@@ -103,11 +103,12 @@ export default function Landing() {
   return (
     <div>
       <Grid container direction="column" alignItems="center">
-        <Paper style={{ height: "10vh", width: "100vw" }}>
-          <Typography variant="h6" component="h3">
-            Logo
-          </Typography>
-        </Paper>
+        <img
+          src="/images/StockChainLogo.png"
+          alt="Smiley face"
+          height="15%"
+          width="100%"
+        ></img>
         <Paper style={{ width: "20vw" }}>
           <Typography variant="h6" component="h6">
             Join
