@@ -3859,6 +3859,13 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hoist-non-react-statics@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
+  integrity sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
+  dependencies:
+    react-is "^16.7.0"
+
 hoist-non-react-statics@^3.2.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#101685d3aff3b23ea213163f6e8e12f4f111e19f"
@@ -6655,6 +6662,14 @@ react-error-overlay@5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
+
+react-is-visible@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-is-visible/-/react-is-visible-1.0.5.tgz#a84d52b96d7e11d7187e1d5376f06c2fd5a4929a"
+  integrity sha512-LyIyY07LPnkKuY1TaQs4P7cxJ/7xWUgz/T97Vk7J1jUKpcQ19KQUcDHxxEmzb58yEZH5EdflI7V3DhSj8HnPJw==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    hoist-non-react-statics "3.3.0"
 
 react-is@16.8.6:
   version "16.8.6"

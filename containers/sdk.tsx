@@ -1,6 +1,6 @@
 import { Container } from "unstated";
-import UniversalLoginSdk from '@universal-login/sdk'
-import { PDexSdk } from "pdex-core/src"
+import UniversalLoginSdk from "@universal-login/sdk";
+// import { PDexSdk } from "pdex-core/src";
 
 type State = {
   contractAddress?: any;
@@ -25,22 +25,22 @@ export class SdkContainer extends Container<State> {
 
   async register(username: string) {
     const ensName = username + this.state.suffix;
-    const { contractAddress, privateKey } = await walletSDK.createAndDeploy(
+    /*const { contractAddress, privateKey } = await walletSDK.createAndDeploy(
       this.sdk,
       ensName
     );
-    this.setState({ contractAddress, privateKey });
+    this.setState({ contractAddress, privateKey });*/
   }
 
   async doSmthn(coreAddress: any) {
-    const pDexSdk = new PDexSdk(
-      this.state.privateKey,
-      this.state.contractAddress,
-      coreAddress,
-      this.state.providerUrl,
-      this.sdk
-    );
-    await pDexSdk.approveBroker("0x1253676373");
+    // const pDexSdk = new PDexSdk(
+    //   this.state.privateKey,
+    //   this.state.contractAddress,
+    //   coreAddress,
+    //   this.state.providerUrl,
+    //   this.sdk
+    // );
+    // await pDexSdk.approveBroker("0x1253676373");
   }
 }
 
