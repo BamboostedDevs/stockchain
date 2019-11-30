@@ -20,7 +20,7 @@ export default class Layout extends PureComponent<Props> {
     return (
       <>
         <Head>
-          <title>Boilerplate of Next.js PWA with typescript</title>
+          <title>StockChain</title>
         </Head>
         <Provider>
           <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
