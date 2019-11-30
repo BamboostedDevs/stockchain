@@ -9,7 +9,6 @@ type Props = {
 };
 
 export default class Layout extends PureComponent<Props> {
-
   componentDidMount() {
     const height = window.innerHeight;
     const width = window.innerWidth;
@@ -26,8 +25,15 @@ export default class Layout extends PureComponent<Props> {
           <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
         </Provider>
         <style jsx global>{`
+          .blockOfTile {
+            background: linear-gradient(
+              rgba(0, 176, 255, 1) 0%,
+              rgba(7, 71, 166, 1) 100%
+            );
+            transition: 0.5s;
+          }
           body {
-            background-color: rgb(73, 158, 249);
+            background-color: rgb(60, 64, 66);
           }
           img {
             pointer-events: none;
