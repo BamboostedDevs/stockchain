@@ -1,5 +1,5 @@
 {
-  "name": "rzeczowydietetyk",
+  "name": "stock.chain",
   "routes": [
     {
       "src": "^/service-worker.js$",

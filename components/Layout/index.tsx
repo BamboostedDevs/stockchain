@@ -3,10 +3,19 @@ import { Provider, Subscribe } from "unstated";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import sizeContainer from "../../containers/size";
 import Head from "next/head";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core";
+import { Sidebar } from "../Segments";
 
 type Props = {
   children: any;
 };
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark"
+  }
+});
 
 export default class Layout extends PureComponent<Props> {
   componentDidMount() {
@@ -22,9 +31,19 @@ export default class Layout extends PureComponent<Props> {
           <title>StockChain</title>
         </Head>
         <Provider>
-          <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
+          <ThemeProvider theme={theme}>
+            <Sidebar></Sidebar>
+            <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
+          </ThemeProvider>
         </Provider>
         <style jsx global>{`
+          .blockOfTile {
+            background: linear-gradient(
+              rgba(0, 176, 255, 1) 0%,
+              rgba(7, 71, 166, 1) 100%
+            );
+            transition: 0.5s;
+          }
           body {
             background-color: rgb(96, 99, 104);
           }
