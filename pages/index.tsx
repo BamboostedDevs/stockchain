@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
+import Header from "../components/Header"
 import sizeContainer from "../containers/size";
 import { Component } from "react";
 import { Home } from "../components/Segments";
 import { StickyContainer } from "react-sticky";
-import Header from "../components/Header";
 
 type State = {
   size: boolean | "large" | "medium" | "small";
@@ -25,10 +25,10 @@ export default class Main extends Component<{}, State> {
   render() {
     return (
       <Layout>
-        <Home size={this.state.size} />
         <StickyContainer>
           <Header />
         </StickyContainer>
+        <Home size={this.state.size} />
       </Layout>
     );
   }
