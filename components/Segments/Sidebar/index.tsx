@@ -7,7 +7,6 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
-  Icon
 } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -49,6 +48,11 @@ export default class Sidebar extends Component<Props, State> {
           }}
           onClick={this.changeDrawer}
         />
+        <Button size="small" variant="contained" color="primary" style={{ top: "1vh", right: "2vw", position: "fixed", zIndex: 255, color: "rgb(192,192,192)", backgroundColor: "rgb(7,71,166)" }}>
+          {/* {isinvestor ? x : y} */}
+          Current balance
+        </Button>
+
         <Drawer open={this.state.drawer} onClose={this.changeDrawer}>
           <div
             style={{ width: 250 }}

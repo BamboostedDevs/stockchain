@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Grid, TextField } from "@material-ui/core";
+import { Grid, TextField, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 type Props = {
   List: object[];
 };
@@ -26,16 +27,16 @@ export default class Filter extends Component<Props, State> {
   render() {
     return (
       <div
-        style={{
+
+      >
+        <Grid container style={{
           position: "fixed",
           bottom: 0,
           left: 0,
           width: "100vw",
           marginLeft: "2vw",
           marginBottom: "2vh"
-        }}
-      >
-        <Grid container spacing={1} alignItems="flex-end">
+        }} spacing={1} alignItems="flex-end">
           <Grid item>
             <SearchIcon />
           </Grid>
@@ -49,6 +50,18 @@ export default class Filter extends Component<Props, State> {
             />
           </Grid>
         </Grid>
+        <Button variant="contained" style={{
+          color: "rgb(192,192,192)",
+          backgroundColor: "rgb(7,71,166)",
+          position: "fixed",
+          bottom: 0,
+          right: 0,
+          width: "20vw",
+          marginBottom: "2.5vh",
+          marginRight: "2vw"
+        }}>
+          <ImportExportIcon></ImportExportIcon> Sort
+        </Button>
       </div>
     );
   }
