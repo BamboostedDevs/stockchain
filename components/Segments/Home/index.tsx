@@ -7,7 +7,7 @@ type Props = {
   size: "large" | "medium" | "small" | boolean;
 };
 
-export default class Home extends Component<Props, {}> {
+export default class Home extends Component<Props> {
   render() {
     const { size } = this.props;
     return (
