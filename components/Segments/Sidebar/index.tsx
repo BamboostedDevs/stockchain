@@ -12,6 +12,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import MenuIcon from "@material-ui/icons/Menu";
+import Router from "next/router";
 
 type State = {
   drawer: boolean;

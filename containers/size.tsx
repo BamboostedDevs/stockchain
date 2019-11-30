@@ -11,7 +11,7 @@ export class SizeContainer extends Container<State> {
   }
 
   changeSize(height: number, width: number) {
-    var size: "large" | "medium" | "small"
+    var size: "large" | "medium" | "small";
     if (height - width < 0) {
       size = "large";
     } else if (height - width > 100 && height < 820) {

@@ -5,7 +5,7 @@ import sizeContainer from "../../containers/size";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
-import { Sidebar } from "../Segments";
+import { Sidebar, EmitterSidebar, Investor } from "../Segments";
 
 type Props = {
   children: any;

@@ -48,7 +48,7 @@ export default class Main extends Component<Props, State> {
     return (
       <Layout>
         <Scroll List={List}></Scroll>
-        {/* {isLogged ? landing : scroll} <Landing /> */}
+        {/* {isLogged ? <Scroll /> : <Landing />} */}
       </Layout>
     );
   }
