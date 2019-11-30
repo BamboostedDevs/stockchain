@@ -45,7 +45,7 @@ export default class Layout extends PureComponent<Props> {
             transition: 0.5s;
           }
           body {
-            background-color: rgb(60, 64, 66);
+            background-color: rgb(96, 99, 104);
           }
           img {
             pointer-events: none;

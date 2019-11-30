@@ -1,8 +1,9 @@
+import React, { Component } from "react";
 import Layout from "../components/Layout";
 import sizeContainer from "../containers/size";
-import { Component } from "react";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
+import { Landing } from "../components/Segments";
 
 const List = [
   { name: "Company1", logo: "/icon.png", bid: 20000, ask: 19000 },
@@ -47,6 +48,7 @@ export default class Main extends Component<Props, State> {
     return (
       <Layout>
         <Scroll List={List}></Scroll>
+        {/* {isLogged ? landing : scroll} <Landing /> */}
       </Layout>
     );
   }
