@@ -37,6 +37,7 @@
     "react-is-visible": "^1.0.5",
     "react-on-screen": "^2.1.1",
     "react-sticky": "^6.0.3",
+    "sweetalert2": "^9.4.0",
     "typescript": "^3.6.4",
     "unstated": "^2.1.1"
   }
