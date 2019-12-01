@@ -115,7 +115,6 @@ export default class Login extends Component<{}, State> {
             style={{ paddingTop: "2vh" }}
           ></img>
         </Grid>
-
         <Paper
           style={{
             marginLeft: "3vw",
