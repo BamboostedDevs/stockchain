@@ -119,7 +119,7 @@ export default class Scroll extends Component<Props, State> {
                           paddingLeft: "10%"
                         }}
                       >
-                        <Col>
+                        <Col style={{ maxWidth: "30vw" }}>
                           <img
                             src={val.logo}
                             width={
@@ -151,12 +151,13 @@ export default class Scroll extends Component<Props, State> {
                           style={{
                             marginLeft: "-10%",
                             transitionDuration: "0.2s",
+                            justifyContent: "center",
                             fontSize:
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
                               (top == idx || this.state.selected == idx)
-                                ? "1.5rem"
-                                : "1.25rem"
+                                ? "1.35rem"
+                                : "1.10rem"
                           }}
                         >
                           {val.name}
@@ -178,84 +179,97 @@ export default class Scroll extends Component<Props, State> {
                             {val.percent}
                           </Col>
                         ) : (
-                          <Col
-                            style={{
-                              marginLeft: "5vw",
-                              marginRight: 0,
-                              transitionDuration: "0.2s",
-                              fontSize:
-                                (this.state.selected == -1 ||
-                                  this.state.selected == idx) &&
-                                (top == idx || this.state.selected == idx)
-                                  ? "1.5rem"
-                                  : "1.25rem"
-                            }}
-                          >
-                            {idx % 2 == 0 ? (
-                              <CallMadeIcon style={{ color: "green" }} />
-                            ) : (
-                              <CallReceivedIcon style={{ color: "red" }} />
-                            )}
-                          </Col>
+                          <div>
+                            <Col
+                              style={{
+                                marginLeft: "5vw",
+                                marginRight: 0,
+                                transitionDuration: "0.2s",
+                                fontSize:
+                                  (this.state.selected == -1 ||
+                                    this.state.selected == idx) &&
+                                  (top == idx || this.state.selected == idx)
+                                    ? "1.35rem"
+                                    : "1.10rem"
+                              }}
+                            >
+                              {idx % 2 == 0 ? (
+                                <CallMadeIcon style={{ color: "green" }} />
+                              ) : (
+                                <CallReceivedIcon style={{ color: "red" }} />
+                              )}
+                            </Col>
+                            <Row
+                              style={{
+                                maxWidth: "100vw",
+                                alignItems: "space-around"
+                              }}
+                            >
+                              <Col
+                                style={{
+                                  marginTop: "5vh",
+                                  marginLeft: "5vw",
+                                  justifyContent: "center"
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  style={{
+                                    justifyContent: "center",
+                                    paddingLeft: "30%"
+                                  }}
+                                >
+                                  Bids:
+                                  <Typography
+                                    style={{
+                                      paddingLeft: "5vw",
+                                      paddingTop: "3vh"
+                                    }}
+                                  >
+                                    <Row>14651</Row>
+                                    <Row>15006</Row>
+                                    <Row>15150</Row>
+                                    <Row>15201</Row>
+                                    <Row>15341</Row>
+                                    <Row>15432</Row>
+                                    <Row>15678</Row>
+                                  </Typography>
+                                </Typography>
+                              </Col>
+                              <Col
+                                style={{
+                                  marginTop: "5vh",
+                                  marginLeft: "5vw",
+                                  justifyContent: "center"
+                                }}
+                              >
+                                <Typography
+                                  variant="h6"
+                                  style={{
+                                    justifyContent: "center",
+                                    paddingRight: "30%"
+                                  }}
+                                >
+                                  Asks:
+                                  <Typography
+                                    style={{
+                                      paddingLeft: "5vw",
+                                      paddingTop: "3vh"
+                                    }}
+                                  >
+                                    <Row>14200</Row>
+                                    <Row>14000</Row>
+                                    <Row>13500</Row>
+                                    <Row>13000</Row>
+                                    <Row>12700</Row>
+                                    <Row>12500</Row>
+                                    <Row>12100</Row>
+                                  </Typography>
+                                </Typography>
+                              </Col>
+                            </Row>
+                          </div>
                         )}
-                      </Row>
-                      <Row style={{ maxWidth: "100vw" }}>
-                        <Col
-                          style={{
-                            marginTop: "5vh",
-                            marginLeft: "5vw",
-                            justifyContent: "center"
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            style={{
-                              justifyContent: "center",
-                              paddingLeft: "30%"
-                            }}
-                          >
-                            Bids:
-                            <Typography
-                              style={{ paddingLeft: "5vw", paddingTop: "3vh" }}
-                            >
-                              <Row>14651</Row>
-                              <Row>15006</Row>
-                              <Row>15150</Row>
-                              <Row>15201</Row>
-                              <Row>15341</Row>
-                              <Row>15432</Row>
-                              <Row>15678</Row>
-                            </Typography>
-                          </Typography>
-                        </Col>
-                        <Col
-                          style={{
-                            marginTop: "5vh",
-                            marginLeft: "5vw",
-                            justifyContent: "center"
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            style={{
-                              justifyContent: "center",
-                              paddingRight: "30%"
-                            }}
-                          >
-                            Asks:
-                            <Typography
-                              style={{ paddingLeft: "5vw", paddingTop: "3vh" }}
-                            >
-                              <Row>14200</Row>
-                              <Row>14000</Row>
-                              <Row>13500</Row>
-                              <Row>13000</Row>
-                              <Row>12700</Row>
-                              <Row>12500</Row>
-                              <Row>12100</Row>
-                            </Typography>
-                          </Typography>
-                        </Col>
                       </Row>
                     </Col>
                   );

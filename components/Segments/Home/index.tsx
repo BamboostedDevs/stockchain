@@ -28,8 +28,22 @@ export default class Home extends Component {
     return (
       <Layout>
         <Row>
-          <AppBar position="static"><Toolbar style={{ justifyContent: "center", backgroundColor: "rgb(145, 149, 156)" }}><Typography><img src="./images/StockChainLogo.png" height="40vh"
-            width="100vw" /></Typography></Toolbar></AppBar>
+          <AppBar position="static">
+            <Toolbar
+              style={{
+                justifyContent: "center",
+                backgroundColor: "rgb(145, 149, 156)"
+              }}
+            >
+              <Typography>
+                <img
+                  src="./images/StockChainLogo.png"
+                  height="40vh"
+                  width="100vw"
+                />
+              </Typography>
+            </Toolbar>
+          </AppBar>
         </Row>
         <Scroll List={List} />
       </Layout>
