@@ -105,7 +105,7 @@ export default function Landing() {
       <Grid container direction="column" alignItems="center">
         <img
           src="/images/StockChainLogo.png"
-          alt="Smiley face"
+          alt="logo"
           height="15%"
           width="100%"
         ></img>
