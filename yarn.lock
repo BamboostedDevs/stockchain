@@ -5882,7 +5882,7 @@ pbkdf2@^3.0.3:
 
 "pdex-core@https://github.com/KarmazynowyTeam/pdex_core.git":
   version "1.0.0"
-  resolved "https://github.com/KarmazynowyTeam/pdex_core.git#5d679ecde6acbe579cf0dacc7722032c5b329e6c"
+  resolved "https://github.com/KarmazynowyTeam/pdex_core.git#24eaa2bbf9e41e5b7f8a8f470559f8ca33a9281b"
   dependencies:
     "@universal-login/sdk" "^1.0.0-beta.0"
     ethers "^4.0.40"
