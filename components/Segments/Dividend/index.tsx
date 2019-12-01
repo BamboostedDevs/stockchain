@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Typography, Divider, TextField, Button, Fab } from "@material-ui/core";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 type State = {
   payed: number;
@@ -16,7 +16,7 @@ export default class Dividend extends Component<{}, State> {
       value: 0
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event: any) {
@@ -30,9 +30,14 @@ export default class Dividend extends Component<{}, State> {
       text: "Are you sure you want to continue?",
       showCancelButton: true
     }).then(result => {
-      this.setState({ payed: this.state.payed + this.state.value })
-      this.setState({ value: 0 })
-    })
+      this.setState({ payed: this.state.payed + this.state.value });
+      this.setState({ value: 0 });
+      Swal.fire({
+        title: "Loaded",
+        icon: "success",
+        timer: 2000
+      });
+    });
   }
 
   render() {
@@ -81,10 +86,21 @@ export default class Dividend extends Component<{}, State> {
           ></TextField>
         </Row>
         <br style={{ lineHeight: "50vh" }} />
-        <Row style={{ justifyContent: "center", color: "white", marginTop: "5vh" }}>
-          <Fab style={{
-            backgroundColor: "rgb(4, 201, 0)", minWidth: "60vw", color: "white"
-          }} onClick={this.handleClick} variant="extended" size="large">Pay</Fab>
+        <Row
+          style={{ justifyContent: "center", color: "white", marginTop: "5vh" }}
+        >
+          <Fab
+            style={{
+              backgroundColor: "rgb(4, 201, 0)",
+              minWidth: "60vw",
+              color: "white"
+            }}
+            onClick={this.handleClick}
+            variant="extended"
+            size="large"
+          >
+            Pay
+          </Fab>
         </Row>
       </Col>
     );

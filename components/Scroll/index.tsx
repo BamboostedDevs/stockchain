@@ -3,6 +3,8 @@ import { Paper, Typography } from "@material-ui/core";
 //@ts-ignore
 import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
+import CallMadeIcon from "@material-ui/icons/CallMade";
+import CallReceivedIcon from "@material-ui/icons/CallReceived";
 
 type List = {
   name: string;

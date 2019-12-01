@@ -1,28 +1,27 @@
 import React, { Component } from "react";
 import Layout from "../components/Layout";
 import sizeContainer from "../containers/size";
-import Header from "../components/Header";
 import Scroll from "../components/Scroll";
 import { Landing, Emitter } from "../components/Segments";
 import validateContainer from "../containers/validate";
 
 const List = [
-  { name: "Company1", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company2", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company2", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company3", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company4", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company5", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company6", logo: "/icon.png", bid: 20000, ask: 190080 },
-  { name: "Company7", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company8", logo: "/icon.png", bid: 200700, ask: 19000 },
-  { name: "Company9", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company10", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company11", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company12", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company13", logo: "/icon.png", bid: 20000, ask: 19000 },
-  { name: "Company14", logo: "/icon.png", bid: 200000, ask: 190000 },
-  { name: "Company15", logo: "/icon.png", bid: 20000, ask: 19000 }
+  { name: "Google", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Java", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Dell", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Toshiba", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Cisco", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "McAfee", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Nvidia", logo: "/icon.png", bid: 20000, ask: 190080 },
+  { name: "HP", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Microsoft", logo: "/icon.png", bid: 200700, ask: 19000 },
+  { name: "Fujitsu", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "AMD", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Lenovo", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "IBM", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Asus", logo: "/icon.png", bid: 20000, ask: 19000 },
+  { name: "Apple", logo: "/icon.png", bid: 200000, ask: 190000 },
+  { name: "Amazon", logo: "/icon.png", bid: 20000, ask: 19000 }
 ];
 
 type State = {
