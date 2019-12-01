@@ -108,7 +108,8 @@ export default class Login extends Component<{}, State> {
         <Grid container direction="column" alignItems="center">
           <img
             src="/images/StockChainLogo.png"
-            alt="logo" height="auto"
+            alt="logo"
+            height="auto"
             width="80%"
             style={{ paddingTop: "2vh" }}
           ></img>
@@ -175,7 +176,7 @@ export default class Login extends Component<{}, State> {
             <Row />
           </Col>
         </Paper>
-      </div>
+      </div >
     );
   }
 }

@@ -6,13 +6,16 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider
+  Divider,
+  Toolbar,
+  Typography
 } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import MenuIcon from "@material-ui/icons/Menu";
 import Router from "next/router";
+import { Row, Col } from "react-bootstrap";
 import validateContainer from "../../../containers/validate";
 
 type State = {
@@ -47,39 +50,14 @@ export default class Sidebar extends Component<Props, State> {
 
     return (
       <div>
-        <MenuIcon
-          style={{
-            position: "fixed",
-            top: "2vh",
-            left: 0,
-            width: "10vw",
-            zIndex: 100
-          }}
-          onClick={this.changeDrawer}
-        />
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          style={{
-            top: "2vh",
-            right: "2vw",
-            position: "fixed",
-            zIndex: 255,
-            color: "rgb(192,192,192)",
-            backgroundColor: "rgb(7,71,166)"
-          }}
-        >
-          {/* {isinvestor ? x : y} */}
-          Current balance
-        </Button>
-
         <Drawer open={this.state.drawer} onClose={this.changeDrawer}>
           <div
             style={{ width: 250 }}
             onClick={this.changeDrawer}
             onKeyDown={this.changeDrawer}
           >
+            <Toolbar style={{ justifyContent: "center", paddingTop: "5vh", paddingBottom: "5vh", paddingLeft: "2vh", paddingRight: "2vh" }}><Typography><img src="./images/StockChainLogo.png" height="50vh"
+              width="auto" /></Typography></Toolbar>
             <List>
               <ListItem button onClick={() => Router.push("/")}>
                 <ListItemIcon>
@@ -94,7 +72,7 @@ export default class Sidebar extends Component<Props, State> {
                 <ListItemText primary="Dividend" />
               </ListItem>
             </List>
-            <Divider />
+            <Divider style={{ marginTop: "10vh" }} />
             {children}
             <Divider />
             <List>
@@ -116,6 +94,40 @@ export default class Sidebar extends Component<Props, State> {
             </List>
           </div>
         </Drawer>
+        <div style={{
+          position: "fixed", top: 0, left: 0, zIndex: 999, width: "100vw", maxWidth: '100vw'
+        }}>
+          <Row>
+            <Col>
+              <MenuIcon
+                style={{
+                  marginTop: "3vh",
+                  marginLeft: "2vh",
+                  width: "10vw"
+                }}
+                onClick={this.changeDrawer}
+              />
+            </Col>
+            <Col />
+            <Col />
+            <Col>
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                style={{
+                  top: "2vh",
+                  right: 0,
+                  color: "rgb(192,192,192)",
+                  backgroundColor: "rgb(7,71,166)"
+                }}
+              >
+                {/* {isinvestor ? x : y} */}
+                8.000zł
+              </Button>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
