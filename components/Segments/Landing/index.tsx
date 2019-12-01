@@ -91,7 +91,7 @@ const images = [
     height: "35vh"
   },
   {
-    url: "/images/company.jpg",
+    url: "/images/business.jpg",
     title: "Company",
     width: "50%",
     height: "35vh"
