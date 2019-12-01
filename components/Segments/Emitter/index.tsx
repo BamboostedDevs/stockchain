@@ -4,22 +4,106 @@ import { Col, Row } from "react-bootstrap";
 import Scroll from "../../Scroll";
 
 const List = [
-  { name: "Name1", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name2", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name3", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name4", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name5", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name6", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name7", logo: "/person.png", bid: 20000, ask: 190080 },
-  { name: "Name8", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name9", logo: "/person.png", bid: 200700, ask: 19000 },
-  { name: "Name10", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name11", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name12", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name13", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name14", logo: "/person.png", bid: 20000, ask: 19000 },
-  { name: "Name15", logo: "/person.png", bid: 200000, ask: 190000 },
-  { name: "Name16", logo: "/person.png", bid: 20000, ask: 19000 }
+  {
+    name: "Name1",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "40%"
+  },
+  {
+    name: "Name2",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "20%"
+  },
+  {
+    name: "Name3",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "18%"
+  },
+  {
+    name: "Name4",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "15%"
+  },
+  {
+    name: "Name5",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "12%"
+  },
+  {
+    name: "Name6",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "12%"
+  },
+  {
+    name: "Name7",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 190080,
+    percent: "10%"
+  },
+  { name: "Name8", logo: "/person.png", bid: 20000, ask: 19000, percent: "8%" },
+  {
+    name: "Name9",
+    logo: "/person.png",
+    bid: 200700,
+    ask: 19000,
+    percent: "7%"
+  },
+  {
+    name: "Name10",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "6%"
+  },
+  {
+    name: "Name11",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "6%"
+  },
+  {
+    name: "Name12",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "5%"
+  },
+  {
+    name: "Name13",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "4%"
+  },
+  {
+    name: "Name14",
+    logo: "/person.png",
+    bid: 20000,
+    ask: 19000,
+    percent: "3%"
+  },
+  {
+    name: "Name15",
+    logo: "/person.png",
+    bid: 200000,
+    ask: 190000,
+    percent: "2%"
+  },
+  { name: "Name16", logo: "/person.png", bid: 20000, ask: 19000, percent: "2%" }
 ];
 
 type State = {
@@ -67,21 +151,26 @@ export default class Emitter extends Component<{}, State> {
           />
         </Row>
         <Row style={{ justifyContent: "center", color: "white" }}>
-          <Typography variant="h3">A Company</Typography>
+          <Typography variant="subtitle1">A Company</Typography>
         </Row>
         <Row style={{ justifyContent: "center", color: "white" }}>
-          <Typography variant="h6">Public Company</Typography>
+          <Typography variant="subtitle1">Public Company</Typography>
         </Row>
         <Row style={{ justifyContent: "center", color: "white" }}>
-          <Typography variant="h6">14 Random St</Typography>
+          <Typography variant="subtitle1">14 Random St</Typography>
         </Row>
         <Row style={{ justifyContent: "center", color: "white" }}>
-          <Typography variant="h6">Somewhere, Some City</Typography>
+          <Typography variant="subtitle1">Somewhere, Some City</Typography>
         </Row>
         <Row style={{ justifyContent: "center", color: "white" }}>
-          <Typography variant="h6">KWSW 654, Country</Typography>
+          <Typography variant="subtitle1">KWSW 654, Country</Typography>
         </Row>
-        <Row style={{ justifyContent: "space-around", marginTop: "3vh" }}>
+        <Row
+          style={{
+            justifyContent: "space-around",
+            marginTop: "3vh"
+          }}
+        >
           <Col style={{ justifyContent: "center" }}>
             <FormControl
               style={{
@@ -155,9 +244,17 @@ export default class Emitter extends Component<{}, State> {
             </FormControl>
           </Col>
         </Row>
-        <Row>
-          <Scroll List={List} />
+        <Row
+          style={{
+            color: "white",
+            justifyContent: "center",
+            marginTop: "2vh",
+            marginBottom: "2vh"
+          }}
+        >
+          <Typography variant="h6">{List.length} Investors:</Typography>
         </Row>
+        <Scroll List={List} />
       </Col>
     );
   }

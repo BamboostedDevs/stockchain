@@ -24,7 +24,7 @@ export default class EmitterSidebar extends Component {
             <ListItemIcon>
               <ContactsIcon />
             </ListItemIcon>
-            <ListItemText primary="147 auctioners"></ListItemText>
+            <ListItemText primary="16 investors"></ListItemText>
           </ListItem>
         </List>
       </div>

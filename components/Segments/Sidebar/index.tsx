@@ -45,7 +45,8 @@ export default class Sidebar extends Component<Props, State> {
             position: "fixed",
             top: "2vh",
             left: 0,
-            width: "10vw"
+            width: "10vw",
+            zIndex: 100
           }}
           onClick={this.changeDrawer}
         />

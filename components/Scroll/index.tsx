@@ -4,7 +4,13 @@ import { Paper, Typography } from "@material-ui/core";
 import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
 
-type List = { name: string; logo: string; bid: number; ask: number };
+type List = {
+  name: string;
+  logo: string;
+  bid: number;
+  ask: number;
+  percent?: string;
+};
 
 type Props = {
   List: List[];
@@ -113,7 +119,7 @@ export default class Scroll extends Component<Props, State> {
                       <Row style={{ marginRight: 0 }}>
                         <Col>
                           <img
-                            src="/icon.png"
+                            src={val.logo}
                             width={
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
@@ -141,7 +147,7 @@ export default class Scroll extends Component<Props, State> {
                         </Col>
                         <Col
                           style={{
-                            marginLeft: "-12.5%",
+                            marginLeft: "-10%",
                             transitionDuration: "0.2s",
                             fontSize:
                               (this.state.selected == -1 ||
@@ -153,21 +159,39 @@ export default class Scroll extends Component<Props, State> {
                         >
                           {val.name}
                         </Col>
-                        <Col
-                          style={{
-                            marginLeft: "5vw",
-                            marginRight: 0,
-                            transitionDuration: "0.2s",
-                            fontSize:
-                              (this.state.selected == -1 ||
-                                this.state.selected == idx) &&
-                              (top == idx || this.state.selected == idx)
-                                ? "1.5rem"
-                                : "1.25rem"
-                          }}
-                        >
-                          Ico
-                        </Col>
+                        {val.percent ? (
+                          <Col
+                            style={{
+                              marginLeft: "5vw",
+                              marginRight: 0,
+                              transitionDuration: "0.2s",
+                              fontSize:
+                                (this.state.selected == -1 ||
+                                  this.state.selected == idx) &&
+                                (top == idx || this.state.selected == idx)
+                                  ? "1.5rem"
+                                  : "1.25rem"
+                            }}
+                          >
+                            {val.percent}
+                          </Col>
+                        ) : (
+                          <Col
+                            style={{
+                              marginLeft: "5vw",
+                              marginRight: 0,
+                              transitionDuration: "0.2s",
+                              fontSize:
+                                (this.state.selected == -1 ||
+                                  this.state.selected == idx) &&
+                                (top == idx || this.state.selected == idx)
+                                  ? "1.5rem"
+                                  : "1.25rem"
+                            }}
+                          >
+                            Ico
+                          </Col>
+                        )}
                       </Row>
                     </Typography>
                   );
