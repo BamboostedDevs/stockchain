@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { Provider, Subscribe } from "unstated";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import sizeContainer from "../../containers/size";
+import validateContainer from "../../containers/validate";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
@@ -32,7 +33,17 @@ export default class Layout extends PureComponent<Props> {
         </Head>
         <Provider>
           <ThemeProvider theme={theme}>
-            <Sidebar></Sidebar>
+            {validateContainer.state.isLogged ? (
+              <Sidebar>
+                {validateContainer.state.userType === "investor" ? (
+                  <Investor />
+                ) : (
+                  <EmitterSidebar />
+                )}
+              </Sidebar>
+            ) : (
+              ""
+            )}
             <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
           </ThemeProvider>
         </Provider>
