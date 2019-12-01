@@ -4,6 +4,7 @@ import sizeContainer from "../containers/size";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
 import { Landing } from "../components/Segments";
+import validateContainer from "../containers/validate";
 
 const List = [
   { name: "Company1", logo: "/icon.png", bid: 20000, ask: 19000 },
@@ -26,6 +27,7 @@ const List = [
 
 type State = {
   size: boolean | "large" | "medium" | "small";
+  isLogged: boolean;
 };
 type Props = {
   children: any;
@@ -34,21 +36,25 @@ type Props = {
 export default class Main extends Component<Props, State> {
   constructor(props: any) {
     super(props);
-    this.state = { size: false };
+    this.state = {
+      size: false,
+      isLogged: false
+    };
   }
 
   componentDidMount() {
     var size: "large" | "medium" | "small";
+    var isLogged: boolean;
     const height = window.innerHeight;
     const width = window.innerWidth;
     size = sizeContainer.changeSize(height, width);
-    this.setState({ size: size });
+    isLogged = validateContainer.state.isLogged;
+    this.setState({ size, isLogged });
   }
   render() {
     return (
       <Layout>
-        <Scroll List={List}></Scroll>
-        {/* {isLogged ? <Scroll /> : <Landing />} */}
+        {this.state.isLogged ? <Scroll List={List} /> : <Landing />}
       </Layout>
     );
   }
