@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Grid, ButtonBase, Paper, Typography, Theme } from "@material-ui/core";
 import Router from "next/router";
+import { Row, Col } from "react-bootstrap";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -105,15 +106,30 @@ export default function Landing() {
       <Grid container direction="column" alignItems="center">
         <img
           src="/images/StockChainLogo.png"
-          alt="Smiley face"
-          height="15%"
-          width="100%"
+          alt="logo"
+          height="auto"
+          width="80%"
+          style={{ paddingTop: "2vh" }}
         ></img>
-        <Paper style={{ width: "20vw" }}>
-          <Typography variant="h6" component="h6">
-            Join
-          </Typography>
-        </Paper>
+        <Row style={{ marginTop: "2vh", marginBottom: "2vh" }}>
+          <Col>
+            <Paper
+              onClick={() => Router.push("/login")}
+              style={{ width: "35vw", background: "rgb(7,71,166)" }}
+            >
+              <Typography variant="h6" component="h6" align="center">
+                Sign in
+              </Typography>
+            </Paper>
+          </Col>
+          <Col>
+            <Paper style={{ width: "35vw" }}>
+              <Typography variant="h6" component="h6" align="center">
+                Sign up as:
+              </Typography>
+            </Paper>
+          </Col>
+        </Row>
         <ButtonBase
           focusRipple
           key={images[0].title}
@@ -121,7 +137,8 @@ export default function Landing() {
           focusVisibleClassName={classes.focusVisible}
           style={{
             width: images[0].width,
-            height: images[0].height
+            height: images[0].height,
+            marginBottom: "2vh"
           }}
         >
           <span
@@ -144,7 +161,6 @@ export default function Landing() {
             </Typography>
           </span>
         </ButtonBase>
-        or
         <ButtonBase
           focusRipple
           key={images[1].title}

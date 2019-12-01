@@ -40,11 +40,11 @@ export default class Main extends Component<Props, State> {
           this.state.userType === "investor" ? (
             <Home />
           ) : (
-              <Emitter />
-            )
+            <Emitter />
+          )
         ) : (
-            <Landing />
-          )}
+          <Landing />
+        )}
       </Layout>
     );
   }

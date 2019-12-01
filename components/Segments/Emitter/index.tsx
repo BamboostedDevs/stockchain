@@ -156,6 +156,16 @@ export default class Emitter extends Component<{}, State> {
               </FormControl>
             </Col>
           </Row>
+          <Row
+            style={{
+              color: "white",
+              justifyContent: "center",
+              marginTop: "2vh",
+              marginBottom: "2vh"
+            }}
+          >
+            <Typography variant="h6">{List.length} Investors:</Typography>
+          </Row>
         </Col>
         <Scroll List={List} /></>
     );

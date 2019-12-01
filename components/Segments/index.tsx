@@ -5,6 +5,8 @@ import Investor from "./Sidebar/investor";
 import Landing from "./Landing";
 import PrivateRegister from "./PrivateRegister";
 import Emitter from "./Emitter";
+import InvestorDividend from "./InvestorDividend";
+import Login from "./Login";
 
 export {
   Home,
@@ -13,5 +15,7 @@ export {
   Emitter,
   Sidebar,
   Investor,
-  EmitterSidebar
+  EmitterSidebar,
+  InvestorDividend,
+  Login
 };
