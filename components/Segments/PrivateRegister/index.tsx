@@ -7,12 +7,15 @@ export default class privateRegister extends Component {
   render() {
     return (
       <div>
-        <img
-          src="/images/StockChainLogo.png"
-          alt="logo"
-          height="15%"
-          width="100%"
-        ></img>
+        <Row style={{ justifyContent: "center" }}>
+          <img
+            src="/images/StockChainLogo.png"
+            alt="logo"
+            height="auto"
+            width="80%"
+            style={{ paddingTop: "2vh" }}
+          ></img>
+        </Row>
         <Paper
           style={{
             marginLeft: "3vw",
