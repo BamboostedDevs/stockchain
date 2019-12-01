@@ -2,6 +2,7 @@ import { Container } from "unstated";
 
 type State = {
   isLogged: boolean;
+  userType: "emitter" | "investor" | null | undefined;
 };
 
 export class ValidateContainer extends Container<State> {
@@ -9,7 +10,8 @@ export class ValidateContainer extends Container<State> {
     super();
 
     this.state = {
-      isLogged: false
+      isLogged: true,
+      userType: "emitter"
     };
   }
 }

@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import sizeContainer from "../containers/size";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
-import { Landing } from "../components/Segments";
+import { Landing, Emitter } from "../components/Segments";
 import validateContainer from "../containers/validate";
 
 const List = [
@@ -28,6 +28,7 @@ const List = [
 type State = {
   size: boolean | "large" | "medium" | "small";
   isLogged: boolean;
+  userType: "emitter" | "investor" | null | undefined;
 };
 type Props = {
   children: any;
@@ -38,7 +39,8 @@ export default class Main extends Component<Props, State> {
     super(props);
     this.state = {
       size: false,
-      isLogged: false
+      isLogged: false,
+      userType: undefined
     };
   }
 
@@ -49,12 +51,21 @@ export default class Main extends Component<Props, State> {
     const width = window.innerWidth;
     size = sizeContainer.changeSize(height, width);
     isLogged = validateContainer.state.isLogged;
-    this.setState({ size, isLogged });
+    const userType = validateContainer.state.userType;
+    this.setState({ size, isLogged, userType });
   }
   render() {
     return (
       <Layout>
-        {this.state.isLogged ? <Scroll List={List} /> : <Landing />}
+        {this.state.isLogged ? (
+          this.state.userType === "investor" ? (
+            <Scroll List={List} />
+          ) : (
+            <Emitter />
+          )
+        ) : (
+          <Landing />
+        )}
       </Layout>
     );
   }
