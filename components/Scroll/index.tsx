@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";
 //@ts-ignore
 import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
@@ -76,15 +76,17 @@ export default class Scroll extends Component<Props, State> {
             <Paper
               key={idx + "-tile"}
               className="blockOfTile"
-              style={
-                this.state.selected == idx
+              style={{
+                ...(this.state.selected == idx
                   ? styles.selected
                   : this.state.selected == -1
                   ? top == idx
                     ? styles.tileTop
                     : styles.tile
-                  : styles.tile
-              }
+                  : styles.tile),
+                ...{ zIndex: idx, position: "relative" },
+                maxWidth: "100vw"
+              }}
               onClick={() =>
                 this.state.selected != idx
                   ? this.setState({ selected: idx })
@@ -109,16 +111,14 @@ export default class Scroll extends Component<Props, State> {
                       this.setState({ visible: uniq(list) });
                   }
                   return (
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      style={{
-                        paddingTop: "10%",
-                        paddingLeft: "10%",
-                        color: "white"
-                      }}
-                    >
-                      <Row style={{ marginRight: 0 }}>
+                    <Col>
+                      <Row
+                        style={{
+                          marginRight: 0,
+                          paddingTop: "10%",
+                          paddingLeft: "10%"
+                        }}
+                      >
                         <Col>
                           <img
                             src={val.logo}
@@ -191,11 +191,73 @@ export default class Scroll extends Component<Props, State> {
                                   : "1.25rem"
                             }}
                           >
-                            Ico
+                            {idx % 2 == 0 ? (
+                              <CallMadeIcon style={{ color: "green" }} />
+                            ) : (
+                              <CallReceivedIcon style={{ color: "red" }} />
+                            )}
                           </Col>
                         )}
                       </Row>
-                    </Typography>
+                      <Row style={{ maxWidth: "100vw" }}>
+                        <Col
+                          style={{
+                            marginTop: "5vh",
+                            marginLeft: "5vw",
+                            justifyContent: "center"
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            style={{
+                              justifyContent: "center",
+                              paddingLeft: "30%"
+                            }}
+                          >
+                            Bids:
+                            <Typography
+                              style={{ paddingLeft: "5vw", paddingTop: "3vh" }}
+                            >
+                              <Row>14651</Row>
+                              <Row>15006</Row>
+                              <Row>15150</Row>
+                              <Row>15201</Row>
+                              <Row>15341</Row>
+                              <Row>15432</Row>
+                              <Row>15678</Row>
+                            </Typography>
+                          </Typography>
+                        </Col>
+                        <Col
+                          style={{
+                            marginTop: "5vh",
+                            marginLeft: "5vw",
+                            justifyContent: "center"
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            style={{
+                              justifyContent: "center",
+                              paddingRight: "30%"
+                            }}
+                          >
+                            Asks:
+                            <Typography
+                              style={{ paddingLeft: "5vw", paddingTop: "3vh" }}
+                            >
+                              <Row>14200</Row>
+                              <Row>14000</Row>
+                              <Row>13500</Row>
+                              <Row>13000</Row>
+                              <Row>12700</Row>
+                              <Row>12500</Row>
+                              <Row>12100</Row>
+                            </Typography>
+                          </Typography>
+                        </Col>
+                      </Row>
+                    </Col>
                   );
                 }}
               </IsVisible>
