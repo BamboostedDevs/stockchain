@@ -29,8 +29,7 @@ export default class Layout extends PureComponent<Props, State> {
 
     this.state = {
       isLogged: false,
-      userType: undefined,
-      window: undefined
+      userType: undefined
     };
   }
 
@@ -61,12 +60,12 @@ export default class Layout extends PureComponent<Props, State> {
                 {this.state.userType === "investor" ? (
                   <Investor />
                 ) : (
-                    <EmitterSidebar />
-                  )}
+                  <EmitterSidebar />
+                )}
               </Sidebar>
             ) : (
-                ""
-              )}
+              ""
+            )}
             <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
           </ThemeProvider>
         </Provider>
