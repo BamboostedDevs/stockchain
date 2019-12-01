@@ -7,11 +7,12 @@ export default class privateRegister extends Component {
   render() {
     return (
       <div>
-        <Paper style={{ height: "10vh", width: "100vw" }}>
-          <Typography variant="h6" component="h3">
-            Logo
-          </Typography>
-        </Paper>
+        <img
+          src="/images/StockChainLogo.png"
+          alt="logo"
+          height="15%"
+          width="100%"
+        ></img>
         <Paper
           style={{
             marginLeft: "3vw",
