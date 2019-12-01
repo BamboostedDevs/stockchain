@@ -23,6 +23,10 @@ export default class Layout extends PureComponent<Props> {
     const height = window.innerHeight;
     const width = window.innerWidth;
     sizeContainer.changeSize(height, width);
+    console.log(
+      validateContainer.state.isLogged,
+      validateContainer.state.userType
+    );
   }
   render() {
     const { children } = this.props;
