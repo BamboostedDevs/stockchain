@@ -107,8 +107,9 @@ export default function Landing() {
         <img
           src="/images/StockChainLogo.png"
           alt="logo"
-          height="15%"
-          width="100%"
+          height="auto"
+          width="80%"
+          style={{ paddingTop: "2vh" }}
         ></img>
         <Row style={{ marginTop: "2vh", marginBottom: "2vh" }}>
           <Col>
