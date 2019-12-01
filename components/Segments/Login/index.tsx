@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { Paper, Button, Grid } from "@material-ui/core";
 import { Col, Form, Row } from "react-bootstrap";
 import Router from "next/router";
+//@ts-ignore
 import Swal from "sweetalert2";
+import validateContainer from "../../../containers/validate";
 
 type State = {
   email: string;
   password: string;
-  credentials: Array<object>;
+  credentials: { email: string; password: string }[];
   name: "email" | "password";
 };
 
@@ -37,7 +39,22 @@ export default class Login extends Component<{}, State> {
   }
 
   validCredentials() {
-    console.log(this.state.credentials);
+    const email = this.state.email;
+    const password = this.state.password;
+    const credentials = this.state.credentials;
+    if (email === credentials[0].email) {
+      if (password === credentials[0].password) {
+        return "emitter";
+      } else {
+        return false;
+      }
+    } else if (email === credentials[1].email) {
+      if (password === credentials[1].password) {
+        return "investor";
+      } else {
+        return false;
+      }
+    }
   }
 
   handleChange(event: any) {
@@ -48,7 +65,6 @@ export default class Login extends Component<{}, State> {
     } else {
       this.setState({ password: value });
     }
-    console.log(this.state);
   }
 
   async handleClick() {
@@ -60,7 +76,30 @@ export default class Login extends Component<{}, State> {
         Swal.showLoading();
       }
     });
-    await this.validCredentials();
+    const response = await this.validCredentials();
+
+    if (response) {
+      //@ts-ignore
+      Swal.fire({
+        title: "Signed in",
+        type: "success",
+        showConfirmButton: false,
+        timer: 1000
+      }).then((login: any) => {
+        if (login.dismiss === Swal.DismissReason.timer) {
+          validateContainer.changeType(response);
+          validateContainer.checkIfLogged(true);
+          Router.push("/");
+        }
+      });
+    } else {
+      //@ts-ignore
+      Swal.fire({
+        title: "Sign in failed",
+        type: "error",
+        text: "Check your password and/or email"
+      });
+    }
   }
   render() {
     return (

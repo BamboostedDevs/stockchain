@@ -14,6 +14,7 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import MenuIcon from "@material-ui/icons/Menu";
 import Router from "next/router";
 import { Row, Col } from "react-bootstrap";
+import validateContainer from "../../../containers/validate";
 
 type State = {
   drawer: boolean;
@@ -29,6 +30,12 @@ export default class Sidebar extends Component<Props, State> {
       drawer: false
     };
     this.changeDrawer = this.changeDrawer.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    validateContainer.checkIfLogged(false);
+    Router.replace("/");
   }
 
   changeDrawer() {
@@ -100,6 +107,7 @@ export default class Sidebar extends Component<Props, State> {
                   width: "50vw"
                 }}
                 button
+                onClick={this.logout}
               >
                 <ListItemIcon>
                   <ExitToAppIcon />
