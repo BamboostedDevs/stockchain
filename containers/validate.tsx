@@ -14,6 +14,14 @@ export class ValidateContainer extends Container<State> {
       userType: "investor"
     };
   }
+
+  changeType(userType: "emitter" | "investor" | null | undefined) {
+    this.setState({ userType });
+  }
+
+  checkIfLogged(isLogged: boolean) {
+    this.setState({ isLogged });
+  }
 }
 
 const validateContainer = new ValidateContainer();
