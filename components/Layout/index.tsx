@@ -7,6 +7,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
 import { Sidebar, EmitterSidebar, Investor } from "../Segments";
+import { PDexSdk } from "pdex-core";
 
 type Props = {
   children: any;
@@ -50,7 +51,7 @@ export default class Layout extends PureComponent<Props, State> {
   render() {
     const { children } = this.props;
     return (
-      <>
+      <PDexSdk>
         <Head>
           <title>StockChain</title>
         </Head>
@@ -102,7 +103,7 @@ export default class Layout extends PureComponent<Props, State> {
             user-select: none;
           }
         `}</style>
-      </>
+      </PDexSdk>
     );
   }
 }
