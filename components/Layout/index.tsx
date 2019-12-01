@@ -12,20 +12,39 @@ type Props = {
   children: any;
 };
 
+type State = {
+  isLogged: boolean | string | null;
+  userType: "emitter" | "investor" | null | undefined | string;
+};
+
 const theme = createMuiTheme({
   palette: {
     type: "dark"
   }
 });
 
-export default class Layout extends PureComponent<Props> {
+export default class Layout extends PureComponent<Props, State> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      isLogged: false,
+      userType: undefined
+    };
+  }
+
   componentDidMount() {
     const height = window.innerHeight;
     const width = window.innerWidth;
     sizeContainer.changeSize(height, width);
+    const isLogged = window.sessionStorage.getItem("isLogged");
+    const userType = window.sessionStorage.getItem("userType");
+
+    this.setState({ isLogged, userType });
+
     console.log(
-      validateContainer.state.isLogged,
-      validateContainer.state.userType
+      window.sessionStorage.getItem("isLogged"),
+      window.sessionStorage.getItem("userType")
     );
   }
   render() {
@@ -37,9 +56,9 @@ export default class Layout extends PureComponent<Props> {
         </Head>
         <Provider>
           <ThemeProvider theme={theme}>
-            {validateContainer.state.isLogged ? (
+            {this.state.isLogged === "true" ? (
               <Sidebar>
-                {validateContainer.state.userType === "investor" ? (
+                {this.state.userType === "investor" ? (
                   <Investor />
                 ) : (
                   <EmitterSidebar />

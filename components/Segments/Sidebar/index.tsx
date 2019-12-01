@@ -37,7 +37,8 @@ export default class Sidebar extends Component<Props, State> {
 
   logout() {
     validateContainer.checkIfLogged(false);
-    Router.replace("/");
+    window.sessionStorage.setItem("isLogged", "false");
+    window.location.href = "/";
   }
 
   changeDrawer() {

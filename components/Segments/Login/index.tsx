@@ -82,13 +82,15 @@ export default class Login extends Component<{}, State> {
       //@ts-ignore
       Swal.fire({
         title: "Signed in",
-        type: "success",
+        icon: "success",
         showConfirmButton: false,
         timer: 1000
       }).then((login: any) => {
         if (login.dismiss === Swal.DismissReason.timer) {
           validateContainer.changeType(response);
           validateContainer.checkIfLogged(true);
+          window.sessionStorage.setItem("userType", response);
+          window.sessionStorage.setItem("isLogged", "true");
           Router.push("/");
         }
       });
@@ -96,7 +98,7 @@ export default class Login extends Component<{}, State> {
       //@ts-ignore
       Swal.fire({
         title: "Sign in failed",
-        type: "error",
+        icon: "error",
         text: "Check your password and/or email"
       });
     }
@@ -176,7 +178,7 @@ export default class Login extends Component<{}, State> {
             <Row />
           </Col>
         </Paper>
-      </div >
+      </div>
     );
   }
 }
