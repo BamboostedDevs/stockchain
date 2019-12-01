@@ -7,9 +7,15 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
 import { Sidebar, EmitterSidebar, Investor } from "../Segments";
+import { PDexSdk } from "pdex-core";
 
 type Props = {
   children: any;
+};
+
+type State = {
+  isLogged: boolean | string | null;
+  userType: "emitter" | "investor" | null | undefined | string;
 };
 
 const theme = createMuiTheme({
@@ -18,24 +24,42 @@ const theme = createMuiTheme({
   }
 });
 
-export default class Layout extends PureComponent<Props> {
+export default class Layout extends PureComponent<Props, State> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      isLogged: false,
+      userType: undefined
+    };
+  }
+
   componentDidMount() {
     const height = window.innerHeight;
     const width = window.innerWidth;
     sizeContainer.changeSize(height, width);
+    const isLogged = window.sessionStorage.getItem("isLogged");
+    const userType = window.sessionStorage.getItem("userType");
+
+    this.setState({ isLogged, userType });
+
+    console.log(
+      window.sessionStorage.getItem("isLogged"),
+      window.sessionStorage.getItem("userType")
+    );
   }
   render() {
     const { children } = this.props;
     return (
-      <>
+      <PDexSdk>
         <Head>
           <title>StockChain</title>
         </Head>
         <Provider>
           <ThemeProvider theme={theme}>
-            {validateContainer.state.isLogged ? (
+            {this.state.isLogged === "true" ? (
               <Sidebar>
-                {validateContainer.state.userType === "investor" ? (
+                {this.state.userType === "investor" ? (
                   <Investor />
                 ) : (
                   <EmitterSidebar />
@@ -79,7 +103,7 @@ export default class Layout extends PureComponent<Props> {
             user-select: none;
           }
         `}</style>
-      </>
+      </PDexSdk>
     );
   }
 }

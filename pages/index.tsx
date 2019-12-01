@@ -6,8 +6,8 @@ import validateContainer from "../containers/validate";
 
 type State = {
   size: boolean | "large" | "medium" | "small";
-  isLogged: boolean;
-  userType: "emitter" | "investor" | null | undefined;
+  isLogged: boolean | string | null;
+  userType: "emitter" | "investor" | null | undefined | string;
 };
 type Props = {
   children: any;
@@ -25,18 +25,17 @@ export default class Main extends Component<Props, State> {
 
   componentDidMount() {
     var size: "large" | "medium" | "small";
-    var isLogged: boolean;
     const height = window.innerHeight;
     const width = window.innerWidth;
     size = sizeContainer.changeSize(height, width);
-    isLogged = validateContainer.state.isLogged;
-    const userType = validateContainer.state.userType;
+    const isLogged = window.sessionStorage.getItem("isLogged");
+    const userType = window.sessionStorage.getItem("userType");
     this.setState({ size, isLogged, userType });
   }
   render() {
     return (
       <Layout>
-        {this.state.isLogged ? (
+        {this.state.isLogged === "true" ? (
           this.state.userType === "investor" ? (
             <Home />
           ) : (

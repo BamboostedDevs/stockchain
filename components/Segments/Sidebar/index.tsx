@@ -15,8 +15,13 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import MenuIcon from "@material-ui/icons/Menu";
 import Router from "next/router";
+<<<<<<< HEAD
 import { Row, Col } from "react-bootstrap";
 import validateContainer from "../../../containers/validate";
+=======
+import validateContainer from "../../../containers/validate";
+import { Row, Col } from "react-bootstrap";
+>>>>>>> 621cfb25f34923da8272bf00b4bb3ab5ef260e38
 
 type State = {
   drawer: boolean;
@@ -37,7 +42,8 @@ export default class Sidebar extends Component<Props, State> {
 
   logout() {
     validateContainer.checkIfLogged(false);
-    Router.replace("/");
+    window.sessionStorage.setItem("isLogged", "false");
+    window.location.href = "/";
   }
 
   changeDrawer() {
@@ -56,8 +62,23 @@ export default class Sidebar extends Component<Props, State> {
             onClick={this.changeDrawer}
             onKeyDown={this.changeDrawer}
           >
-            <Toolbar style={{ justifyContent: "center", paddingTop: "5vh", paddingBottom: "5vh", paddingLeft: "2vh", paddingRight: "2vh" }}><Typography><img src="./images/StockChainLogo.png" height="50vh"
-              width="auto" /></Typography></Toolbar>
+            <Toolbar
+              style={{
+                justifyContent: "center",
+                paddingTop: "5vh",
+                paddingBottom: "5vh",
+                paddingLeft: "2vh",
+                paddingRight: "2vh"
+              }}
+            >
+              <Typography>
+                <img
+                  src="./images/StockChainLogo.png"
+                  height="50vh"
+                  width="auto"
+                />
+              </Typography>
+            </Toolbar>
             <List>
               <ListItem button onClick={() => Router.push("/")}>
                 <ListItemIcon>
@@ -94,9 +115,16 @@ export default class Sidebar extends Component<Props, State> {
             </List>
           </div>
         </Drawer>
-        <div style={{
-          position: "fixed", top: 0, left: 0, zIndex: 999, width: "100vw", maxWidth: '100vw'
-        }}>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            zIndex: 999,
+            width: "100vw",
+            maxWidth: "100vw"
+          }}
+        >
           <Row>
             <Col>
               <MenuIcon
