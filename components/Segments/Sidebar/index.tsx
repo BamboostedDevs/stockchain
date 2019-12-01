@@ -73,13 +73,13 @@ export default class Sidebar extends Component<Props, State> {
             onKeyDown={this.changeDrawer}
           >
             <List>
-              <ListItem button>
+              <ListItem button onClick={() => Router.push("/")}>
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
-              <ListItem button>
+              <ListItem button onClick={() => Router.push("/dividend")}>
                 <ListItemIcon>
                   <AttachMoneyIcon />
                 </ListItemIcon>
