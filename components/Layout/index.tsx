@@ -7,7 +7,6 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
 import { Sidebar, EmitterSidebar, Investor } from "../Segments";
-import { PDexSdk } from "pdex-core";
 
 type Props = {
   children: any;
@@ -30,7 +29,8 @@ export default class Layout extends PureComponent<Props, State> {
 
     this.state = {
       isLogged: false,
-      userType: undefined
+      userType: undefined,
+      window: undefined
     };
   }
 
@@ -40,7 +40,6 @@ export default class Layout extends PureComponent<Props, State> {
     sizeContainer.changeSize(height, width);
     const isLogged = window.sessionStorage.getItem("isLogged");
     const userType = window.sessionStorage.getItem("userType");
-
     this.setState({ isLogged, userType });
 
     console.log(
@@ -51,7 +50,7 @@ export default class Layout extends PureComponent<Props, State> {
   render() {
     const { children } = this.props;
     return (
-      <PDexSdk>
+      <>
         <Head>
           <title>StockChain</title>
         </Head>
@@ -62,12 +61,12 @@ export default class Layout extends PureComponent<Props, State> {
                 {this.state.userType === "investor" ? (
                   <Investor />
                 ) : (
-                  <EmitterSidebar />
-                )}
+                    <EmitterSidebar />
+                  )}
               </Sidebar>
             ) : (
-              ""
-            )}
+                ""
+              )}
             <Subscribe to={[sizeContainer]}>{container => children}</Subscribe>
           </ThemeProvider>
         </Provider>
@@ -103,7 +102,7 @@ export default class Layout extends PureComponent<Props, State> {
             user-select: none;
           }
         `}</style>
-      </PDexSdk>
+      </>
     );
   }
 }

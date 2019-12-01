@@ -5880,9 +5880,8 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-"pdex-core@https://github.com/KarmazynowyTeam/pdex_core.git":
+pdex-core@../pdex_core:
   version "1.0.0"
-  resolved "https://github.com/KarmazynowyTeam/pdex_core.git#24eaa2bbf9e41e5b7f8a8f470559f8ca33a9281b"
   dependencies:
     "@universal-login/sdk" "^1.0.0-beta.0"
     ethers "^4.0.40"
