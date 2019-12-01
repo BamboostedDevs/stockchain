@@ -33,7 +33,7 @@ export default class Dividend extends Component<{}, State> {
       this.setState({ payed: this.state.payed + this.state.value });
       this.setState({ value: 0 });
       Swal.fire({
-        title: "Loaded",
+        title: "Issued",
         icon: "success",
         timer: 2000
       });

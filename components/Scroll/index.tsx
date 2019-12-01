@@ -6,7 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import CallReceivedIcon from "@material-ui/icons/CallReceived";
 
-type List = { name: string; logo: string; bid: number; ask: number };
+type List = { name: string; logo: string; bid?: number; ask?: number, percent?: number };
 
 type Props = {
   List: List[];
@@ -139,16 +139,16 @@ export default class Scroll extends Component<Props, State> {
                           }}
                         >
                         </Col>
-                        {idx % 2 == 0 ? (
+                        {val.bid && val.ask ? idx % 2 == 0 ? (
                           <Col><CallMadeIcon style={{ color: "green" }} /></Col>
                         ) : (
                             <Col><CallReceivedIcon style={{ color: "red" }} /></Col>
-                          )}
+                          ) : <Col>{val.percent}%</Col>}
                       </Row>
                     );
                   }}
                 </IsVisible>
-                <Row style={{ marginRight: "0" }}>
+                {val.bid && val.ask ? <Row style={{ marginRight: "0" }}>
                   <Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center", }}>
                     <Typography variant="h6" style={{ justifyContent: "center", paddingLeft: "30%" }}>
                       Bids:
@@ -166,7 +166,7 @@ export default class Scroll extends Component<Props, State> {
                       </Typography>
                     </Typography>
                   </Col>
-                </Row>
+                </Row> : <Row style={{ marginRight: "0" }}><Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center", }}>Info about the investor</Col></Row>}
               </Typography>
             </Paper>
           );

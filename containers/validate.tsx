@@ -11,7 +11,7 @@ export class ValidateContainer extends Container<State> {
 
     this.state = {
       isLogged: true,
-      userType: "investor"
+      userType: "emitter"
     };
   }
 }

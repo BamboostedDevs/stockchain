@@ -26,7 +26,7 @@ const List = [
 export default class Home extends Component {
   render() {
     return (
-      <Layout><Toolbar style={{ justifyContent: "center", marginTop: "3vh", marginBottom: "5vh" }}><Typography><img src="./images/StockChainLogo.png" height="50vh"
+      <Layout><Toolbar style={{ justifyContent: "center", marginTop: "3vh", marginBottom: "5vh" }}><Typography><img src="./images/StockChainLogo.png" height="75vh"
         width="auto" /></Typography></Toolbar>
         <Scroll List={List} />
       </Layout>
