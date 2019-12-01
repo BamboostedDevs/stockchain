@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";
+import { Paper, Typography, Fab } from "@material-ui/core";
 //@ts-ignore
 import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import CallReceivedIcon from "@material-ui/icons/CallReceived";
 import Filter from "./Filter";
+import Swal from "sweetalert2";
 
 type List = { name: string; logo: string; bid?: number; ask?: number, percent?: number };
 
 type Props = {
   List: List[];
+  type?: boolean
 };
 
 function uniq(a: number[]) {
@@ -59,10 +61,19 @@ export default class Scroll extends Component<Props, State> {
       visible: [],
       selected: -1
     };
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    Swal.fire({
+      title: "Collected",
+      icon: "success",
+      timer: 4000
+    })
   }
 
   render() {
-    const { List } = this.props;
+    const { List, type } = this.props;
     return (
       <div>
         {List.map((val, idx) => {
@@ -173,7 +184,13 @@ export default class Scroll extends Component<Props, State> {
           );
         })
         }
-        <Filter List={List} />
+        {!type ? <div style={{ position: "fixed", bottom: "2vh", zIndex: 999, width: "100vw", textAlign: "center" }}><Fab onClick={this.handleClick} style={{
+          backgroundColor: "rgb(4, 201, 0)",
+          minWidth: "60vw",
+          color: "white"
+        }}
+          variant="extended"
+          size="large">Collect</Fab></div> : <Filter List={List} />}
       </div >
     );
   }
