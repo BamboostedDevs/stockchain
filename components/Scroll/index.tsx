@@ -21,23 +21,31 @@ function getTop(a: any) {
 
 const styles = {
   tile: {
-    height: "50vh",
-    marginBottom: "-35vh",
+    height: "80vh",
+    marginBottom: "-65vh",
     borderRadius: "7.5vw",
     boxShadow: "0px -2px 10px rgb(7,71,166)",
     transition: "margin-bottom 0.25s"
   },
   tileTop: {
-    height: "50vh",
-    marginBottom: "-15vh",
+    height: "80vh",
+    marginBottom: "-45vh",
     borderRadius: "7.5vw",
     boxShadow: "0px -2px 10px rgb(7,71,166)",
     transition: "margin-bottom 0.25s"
+  },
+  selected: {
+    height: "80vh",
+    marginBottom: "-5vh",
+    borderRadius: "7.5vw",
+    boxShadow: "0px -2px 10px rgb(7,71,166)",
+    transition: "margin-bottom 0.5s"
   }
 };
 
 type State = {
   visible: number[];
+  selected: number
 };
 
 export default class Scroll extends Component<Props, State> {
@@ -45,7 +53,8 @@ export default class Scroll extends Component<Props, State> {
     super(props);
 
     this.state = {
-      visible: []
+      visible: [],
+      selected: -1
     };
   }
 
@@ -59,7 +68,8 @@ export default class Scroll extends Component<Props, State> {
             <Paper
               key={idx + "-tile"}
               className="blockOfTile"
-              style={top == idx ? styles.tileTop : styles.tile}
+              style={this.state.selected == idx ? styles.selected : this.state.selected == -1 ? (top == idx ? styles.tileTop : styles.tile) : styles.tile}
+              onClick={() => this.state.selected != idx ? this.setState({ selected: idx }) : this.setState({ selected: -1 })}
             >
               <IsVisible>
                 {(IsVisible: boolean) => {
@@ -92,10 +102,10 @@ export default class Scroll extends Component<Props, State> {
                         <Col>
                           <img
                             src="/icon.png"
-                            width={top == idx ? "75" : "50"}
-                            height={top == idx ? "75" : "50"}
+                            width={(this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "75" : "50"}
+                            height={(this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "75" : "50"}
                             style={{
-                              marginTop: top == idx ? "-10%" : "-5%",
+                              marginTop: (this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "-10%" : "-5%",
                               transitionDuration: "0.2s"
                             }}
                           ></img>
@@ -104,7 +114,7 @@ export default class Scroll extends Component<Props, State> {
                           style={{
                             marginLeft: "-12.5%",
                             transitionDuration: "0.2s",
-                            fontSize: top == idx ? "1.5rem" : "1.25rem"
+                            fontSize: (this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "1.5rem" : "1.25rem"
                           }}
                         >
                           {val.name}
@@ -114,7 +124,7 @@ export default class Scroll extends Component<Props, State> {
                             marginLeft: "5vw",
                             marginRight: 0,
                             transitionDuration: "0.2s",
-                            fontSize: top == idx ? "1.5rem" : "1.25rem"
+                            fontSize: (this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "1.5rem" : "1.25rem"
                           }}
                         >
                           Ico
