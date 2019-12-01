@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Paper, Button } from "@material-ui/core";
+import { Paper, Button, Grid } from "@material-ui/core";
 import { Col, Form, Row } from "react-bootstrap";
 import Router from "next/router";
 //@ts-ignore
@@ -104,12 +104,16 @@ export default class Login extends Component<{}, State> {
   render() {
     return (
       <div>
-        <img
-          src="/images/StockChainLogo.png"
-          alt="logo"
-          height="15%"
-          width="100%"
-        ></img>
+        <Grid container direction="column" alignItems="center">
+          <img
+            src="/images/StockChainLogo.png"
+            alt="logo"
+            height="auto"
+            width="80%"
+            style={{ paddingTop: "2vh" }}
+          ></img>
+        </Grid>
+
         <Paper
           style={{
             marginLeft: "3vw",
@@ -172,7 +176,7 @@ export default class Login extends Component<{}, State> {
             <Row />
           </Col>
         </Paper>
-      </div>
+      </div >
     );
   }
 }
