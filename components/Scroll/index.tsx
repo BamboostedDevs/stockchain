@@ -70,15 +70,16 @@ export default class Scroll extends Component<Props, State> {
             <Paper
               key={idx + "-tile"}
               className="blockOfTile"
-              style={
-                this.state.selected == idx
+              style={{
+                ...(this.state.selected == idx
                   ? styles.selected
                   : this.state.selected == -1
-                  ? top == idx
-                    ? styles.tileTop
-                    : styles.tile
-                  : styles.tile
-              }
+                    ? top == idx
+                      ? styles.tileTop
+                      : styles.tile
+                    : styles.tile),
+                ...{ zIndex: idx, position: "relative" }
+              }}
               onClick={() =>
                 this.state.selected != idx
                   ? this.setState({ selected: idx })
@@ -119,14 +120,14 @@ export default class Scroll extends Component<Props, State> {
                             width={
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
-                              (top == idx || this.state.selected == idx)
+                                (top == idx || this.state.selected == idx)
                                 ? "75"
                                 : "50"
                             }
                             height={
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
-                              (top == idx || this.state.selected == idx)
+                                (top == idx || this.state.selected == idx)
                                 ? "75"
                                 : "50"
                             }
@@ -134,7 +135,7 @@ export default class Scroll extends Component<Props, State> {
                               marginTop:
                                 (this.state.selected == -1 ||
                                   this.state.selected == idx) &&
-                                (top == idx || this.state.selected == idx)
+                                  (top == idx || this.state.selected == idx)
                                   ? "-10%"
                                   : "-5%",
                               transitionDuration: "0.2s"
@@ -148,7 +149,7 @@ export default class Scroll extends Component<Props, State> {
                             fontSize:
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
-                              (top == idx || this.state.selected == idx)
+                                (top == idx || this.state.selected == idx)
                                 ? "1.5rem"
                                 : "1.25rem"
                           }}
@@ -163,7 +164,7 @@ export default class Scroll extends Component<Props, State> {
                             fontSize:
                               (this.state.selected == -1 ||
                                 this.state.selected == idx) &&
-                              (top == idx || this.state.selected == idx)
+                                (top == idx || this.state.selected == idx)
                                 ? "1.5rem"
                                 : "1.25rem"
                           }}
@@ -176,13 +177,13 @@ export default class Scroll extends Component<Props, State> {
                         </Col>
                       </Row>
                       <Row>
-                        <Col  style={{ marginTop: "5vh", marginLeft: "5vw" }}>
-                          <Typography style={{ justifyContent: "center"}}>
+                        <Col style={{ marginTop: "5vh", marginLeft: "5vw" }}>
+                          <Typography style={{ justifyContent: "center" }}>
                             Bids:
                           </Typography>
                         </Col>
-                        <Col  style={{  marginTop: "5vh", marginLeft: "5vw"}}>
-                          <Typography style={{ justifyContent: "center"}}>
+                        <Col style={{ marginTop: "5vh", marginLeft: "5vw" }}>
+                          <Typography style={{ justifyContent: "center" }}>
                             Asks:
                           </Typography>
                         </Col>
@@ -193,8 +194,9 @@ export default class Scroll extends Component<Props, State> {
               </IsVisible>
             </Paper>
           );
-        })}
-      </div>
+        })
+        }
+      </div >
     );
   }
 }
