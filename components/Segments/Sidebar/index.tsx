@@ -15,13 +15,8 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import MenuIcon from "@material-ui/icons/Menu";
 import Router from "next/router";
-<<<<<<< HEAD
 import { Row, Col } from "react-bootstrap";
 import validateContainer from "../../../containers/validate";
-=======
-import validateContainer from "../../../containers/validate";
-import { Row, Col } from "react-bootstrap";
->>>>>>> 621cfb25f34923da8272bf00b4bb3ab5ef260e38
 
 type State = {
   drawer: boolean;
