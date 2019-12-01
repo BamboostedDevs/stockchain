@@ -120,10 +120,22 @@ export default class Scroll extends Component<Props, State> {
                           }}
                         >
                           {idx % 2 == 0 ? (
-                            <CallMadeIcon />
+                            <CallMadeIcon style={{ color: "green" }} />
                           ) : (
-                            <CallReceivedIcon />
-                          )}
+                              <CallReceivedIcon style={{ color: "red" }} />
+                            )}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col  style={{ marginTop: "5vh", marginLeft: "5vw" }}>
+                          <Typography style={{ justifyContent: "center"}}>
+                            Bids:
+                          </Typography>
+                        </Col>
+                        <Col  style={{  marginTop: "5vh", marginLeft: "5vw"}}>
+                          <Typography style={{ justifyContent: "center"}}>
+                            Asks:
+                          </Typography>
                         </Col>
                       </Row>
                     </Typography>
