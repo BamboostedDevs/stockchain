@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const images = [
   {
-    url: "/images/figure.jpg",
+    url: "/images/businesswoman.jpg",
     title: "Private",
     width: "50%",
     height: "35vh"
