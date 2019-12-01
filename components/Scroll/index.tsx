@@ -5,6 +5,7 @@ import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
 import CallMadeIcon from "@material-ui/icons/CallMade";
 import CallReceivedIcon from "@material-ui/icons/CallReceived";
+import Filter from "./Filter";
 
 type List = { name: string; logo: string; bid?: number; ask?: number, percent?: number };
 
@@ -172,6 +173,7 @@ export default class Scroll extends Component<Props, State> {
           );
         })
         }
+        <Filter List={List} />
       </div >
     );
   }
