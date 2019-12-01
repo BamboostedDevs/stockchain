@@ -3,6 +3,8 @@ import { Paper, Typography } from "@material-ui/core";
 //@ts-ignore
 import IsVisible from "react-is-visible";
 import { Row, Col } from "react-bootstrap";
+import CallMadeIcon from "@material-ui/icons/CallMade";
+import CallReceivedIcon from "@material-ui/icons/CallReceived";
 
 type List = { name: string; logo: string; bid: number; ask: number };
 
@@ -127,7 +129,23 @@ export default class Scroll extends Component<Props, State> {
                             fontSize: (this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "1.5rem" : "1.25rem"
                           }}
                         >
-                          Ico
+                          {idx % 2 == 0 ? (
+                            <CallMadeIcon style={{ color: "green" }} />
+                          ) : (
+                              <CallReceivedIcon style={{ color: "red" }} />
+                            )}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col  style={{ marginTop: "5vh", marginLeft: "5vw" }}>
+                          <Typography style={{ justifyContent: "center"}}>
+                            Bids:
+                          </Typography>
+                        </Col>
+                        <Col  style={{  marginTop: "5vh", marginLeft: "5vw"}}>
+                          <Typography style={{ justifyContent: "center"}}>
+                            Asks:
+                          </Typography>
                         </Col>
                       </Row>
                     </Typography>
