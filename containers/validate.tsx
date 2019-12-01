@@ -10,7 +10,7 @@ export class ValidateContainer extends Container<State> {
     super();
 
     this.state = {
-      isLogged: true,
+      isLogged: false,
       userType: "investor"
     };
   }

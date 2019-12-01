@@ -26,8 +26,25 @@ const List = [
 export default class Home extends Component {
   render() {
     return (
-      <Layout><Toolbar style={{ justifyContent: "center", marginTop: "3vh", marginBottom: "5vh" }}><Typography><img src="./images/StockChainLogo.png" height="50vh"
-        width="auto" /></Typography></Toolbar>
+      <Layout>
+        <Row>
+          <AppBar position="static">
+            <Toolbar
+              style={{
+                justifyContent: "center",
+                backgroundColor: "rgb(145, 149, 156)"
+              }}
+            >
+              <Typography>
+                <img
+                  src="./images/StockChainLogo.png"
+                  height="40vh"
+                  width="100vw"
+                />
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Row>
         <Scroll List={List} />
       </Layout>
     );
