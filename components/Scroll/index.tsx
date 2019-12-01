@@ -70,74 +70,50 @@ export default class Scroll extends Component<Props, State> {
             <Paper
               key={idx + "-tile"}
               className="blockOfTile"
-              style={{
-                ...(this.state.selected == idx
-                  ? styles.selected
-                  : this.state.selected == -1
-                    ? top == idx
-                      ? styles.tileTop
-                      : styles.tile
-                    : styles.tile),
-                ...{ zIndex: idx, position: "relative" },
-                maxWidth: "100vw"
-              }}
-              onClick={() =>
-                this.state.selected != idx
-                  ? this.setState({ selected: idx })
-                  : this.setState({ selected: -1 })
-              }
+              style={{ ...(this.state.selected == idx ? styles.selected : this.state.selected == -1 ? (top == idx ? styles.tileTop : styles.tile) : styles.tile), ...{ zIndex: idx, position: "relative" } }}
+              onClick={() => this.state.selected != idx ? this.setState({ selected: idx }) : this.setState({ selected: -1 })}
             >
-              <IsVisible>
-                {(IsVisible: boolean) => {
-                  if (IsVisible == true && !this.state.visible.includes(idx)) {
-                    var list = uniq(this.state.visible);
-                    !list.includes(idx) && list.push(idx);
-                    !this.state.visible.includes(idx) &&
-                      this.setState({ visible: list });
-                  } else if (
-                    IsVisible == false &&
-                    this.state.visible.includes(idx)
-                  ) {
-                    var list = uniq(this.state.visible);
-                    const toRemove = list.indexOf(idx);
-                    toRemove > -1 &&
-                      list.splice(toRemove, 1) &&
-                      this.setState({ visible: uniq(list) });
-                  }
-                  return (
-                    <Col>
-                      <Row style={{ marginRight: 0, paddingTop: "10%", paddingLeft: "10%" }}>
+              <Typography
+                variant="h6"
+                component="h3"
+                style={{
+                  paddingTop: "10%",
+                  paddingLeft: "10%",
+                  color: "white"
+                }}
+              >
+                <IsVisible>
+                  {(IsVisible: boolean) => {
+                    if (IsVisible == true && !this.state.visible.includes(idx)) {
+                      var list = uniq(this.state.visible);
+                      !list.includes(idx) && list.push(idx);
+                      !this.state.visible.includes(idx) &&
+                        this.setState({ visible: list });
+                    } else if (
+                      IsVisible == false &&
+                      this.state.visible.includes(idx)
+                    ) {
+                      var list = uniq(this.state.visible);
+                      const toRemove = list.indexOf(idx);
+                      toRemove > -1 &&
+                        list.splice(toRemove, 1) &&
+                        this.setState({ visible: uniq(list) });
+                    }
+                    return (
+                      <Row style={{ marginRight: 0 }}>
                         <Col>
                           <img
                             src="/icon.png"
-                            width={
-                              (this.state.selected == -1 ||
-                                this.state.selected == idx) &&
-                                (top == idx || this.state.selected == idx)
-                                ? "75"
-                                : "50"
-                            }
-                            height={
-                              (this.state.selected == -1 ||
-                                this.state.selected == idx) &&
-                                (top == idx || this.state.selected == idx)
-                                ? "75"
-                                : "50"
-                            }
+                            width={(this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "75" : "50"}
+                            height={(this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "75" : "50"}
                             style={{
-                              marginTop:
-                                (this.state.selected == -1 ||
-                                  this.state.selected == idx) &&
-                                  (top == idx || this.state.selected == idx)
-                                  ? "-10%"
-                                  : "-5%",
+                              marginTop: (this.state.selected == -1 || this.state.selected == idx) && (top == idx || this.state.selected == idx) ? "-10%" : "-5%",
                               transitionDuration: "0.2s"
                             }}
                           ></img>
                         </Col>
                         <Col
                           style={{
-                            marginLeft: "-12.5%",
                             transitionDuration: "0.2s",
                             fontSize:
                               (this.state.selected == -1 ||
@@ -162,36 +138,36 @@ export default class Scroll extends Component<Props, State> {
                                 : "1.25rem"
                           }}
                         >
-                          {idx % 2 == 0 ? (
-                            <CallMadeIcon style={{ color: "green" }} />
-                          ) : (
-                              <CallReceivedIcon style={{ color: "red" }} />
-                            )}
                         </Col>
+                        {idx % 2 == 0 ? (
+                          <Col><CallMadeIcon style={{ color: "green" }} /></Col>
+                        ) : (
+                            <Col><CallReceivedIcon style={{ color: "red" }} /></Col>
+                          )}
                       </Row>
-                      <Row style={{ maxWidth: "100vw", }}>
-                        <Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center", }}>
-                          <Typography variant="h6" style={{ justifyContent: "center", paddingLeft: "30%" }}>
-                            Bids:
+                    );
+                  }}
+                </IsVisible>
+                <Row style={{ marginRight: "0" }}>
+                  <Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center", }}>
+                    <Typography variant="h6" style={{ justifyContent: "center", paddingLeft: "30%" }}>
+                      Bids:
                             <Typography style={{ paddingLeft: "5vw", paddingTop: "3vh" }}>
-                              <Row>14651</Row><Row>15006</Row><Row>15150</Row><Row>15201</Row><Row>15341</Row><Row>15432</Row><Row>15678</Row>
-                            </Typography>
-                          </Typography>
-                        </Col>
-                        <Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center" }}>
-                          <Typography variant="h6" style={{ justifyContent: "center", paddingRight: "30%" }}>
+                        <Row>14651</Row><Row>15006</Row><Row>15150</Row><Row>15201</Row><Row>15341</Row><Row>15432</Row><Row>15678</Row>
+                      </Typography>
+                    </Typography>
+                  </Col>
+                  <Col style={{ marginTop: "5vh", marginLeft: "5vw", justifyContent: "center" }}>
+                    <Typography variant="h6" style={{ justifyContent: "center", paddingRight: "30%" }}>
 
-                            Asks:
+                      Asks:
                             <Typography style={{ paddingLeft: "5vw", paddingTop: "3vh" }}>
-                              <Row >14200</Row><Row>14000</Row><Row>13500</Row><Row>13000</Row><Row>12700</Row><Row>12500</Row><Row>12100</Row>
-                            </Typography>
-                          </Typography>
-                        </Col>
-                      </Row>
-                    </Col>
-                  );
-                }}
-              </IsVisible>
+                        <Row >14200</Row><Row>14000</Row><Row>13500</Row><Row>13000</Row><Row>12700</Row><Row>12500</Row><Row>12100</Row>
+                      </Typography>
+                    </Typography>
+                  </Col>
+                </Row>
+              </Typography>
             </Paper>
           );
         })
